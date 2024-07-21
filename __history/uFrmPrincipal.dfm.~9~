@@ -1,0 +1,47 @@
+object FrmSistemaAbastecimento: TFrmSistemaAbastecimento
+  Left = 0
+  Top = 0
+  Caption = 'Sistema de Abastecimento'
+  ClientHeight = 354
+  ClientWidth = 618
+  Color = clBtnFace
+  Constraints.MaxHeight = 500
+  Constraints.MaxWidth = 650
+  Constraints.MinHeight = 354
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -12
+  Font.Name = 'Segoe UI'
+  Font.Style = []
+  Menu = mmSistemaAbastecimento
+  Position = poScreenCenter
+  TextHeight = 15
+  object FDPhysSQLiteDriverLink1: TFDPhysSQLiteDriverLink
+    Left = 208
+    Top = 168
+  end
+  object FDConnection1: TFDConnection
+    Params.Strings = (
+      'Database=E:\Fortes Tecnologia\Banco.SQLite3'
+      'DriverID=SQLite')
+    Left = 80
+    Top = 168
+  end
+  object mmSistemaAbastecimento: TMainMenu
+    Left = 88
+    Top = 56
+    object mmCadastros: TMenuItem
+      Caption = 'Cadastros'
+      object mmAbastecimento: TMenuItem
+        Caption = 'Abastecimento'
+        OnClick = mmAbastecimentoClick
+      end
+      object mmBomba: TMenuItem
+        Caption = 'Bomba'
+      end
+      object mmTanque: TMenuItem
+        Caption = 'Tanque'
+      end
+    end
+  end
+end

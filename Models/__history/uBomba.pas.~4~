@@ -1,0 +1,41 @@
+unit uBomba;
+
+interface
+
+type
+  TBomba = class
+  private
+    FID: Integer;
+    FIDTanque: Integer;
+    FDescricao: String;
+  public
+    property ID: Integer read FID write FID;
+    property IDTanque: Integer read FIDTanque write FIDTanque;
+    property Descricao: String read FDescricao write FDescricao;
+
+    constructor Create; overload;
+    procedure Inserir(const AID: Integer; const ADescricao: String; const ATipoCombustivel: TTipoCombustivel);
+    procedure LimparCampos;
+  end;
+
+implementation
+
+{ TBomba }
+
+constructor TBomba.Create;
+begin
+
+end;
+
+procedure TBomba.Inserir(const AID: Integer; const ADescricao: String;
+  const ATipoCombustivel: TTipoCombustivel);
+begin
+
+end;
+
+procedure TBomba.LimparCampos;
+begin
+
+end;
+
+end.

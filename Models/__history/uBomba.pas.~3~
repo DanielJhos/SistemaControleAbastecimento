@@ -1,0 +1,19 @@
+unit uBomba;
+
+interface
+
+type
+  TBomba = class
+  private
+    FID: Integer;
+    FIDTanque: Integer;
+    FDescricao: String;
+  public
+    property ID: Integer read FID write FID;
+    property IDTanque: Integer read FIDTanque write FIDTanque;
+    property Descricao: String read FDescricao write FDescricao;
+  end;
+
+implementation
+
+end.

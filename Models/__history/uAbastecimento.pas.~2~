@@ -1,0 +1,15 @@
+unit uAbastecimento;
+
+interface
+
+type
+  TAbastecimento = class
+  private
+    FID: Integer;
+    FIDBomba: Integer;
+    FData: TDateTime;
+
+  end;
+implementation
+
+end.

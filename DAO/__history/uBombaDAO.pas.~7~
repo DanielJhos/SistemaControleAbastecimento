@@ -1,0 +1,47 @@
+unit uBombaDAO;
+
+interface
+
+uses
+  uBomba,
+  FireDAC.Comp.Client;
+
+type
+  TBombaDAO = class
+  private
+    FQuery: TFDQuery;
+  public
+    procedure Inserir(const ABomba: TBomba);
+
+    constructor Create;
+    destructor Destroy; override;
+  end;
+
+implementation
+
+uses
+  System.SysUtils,
+  uDataModule,
+  LibUtil;
+
+{ TBombaDAO }
+
+constructor TBombaDAO.Create;
+begin
+  FQuery := TFDQuery.Create(nil);
+  FQuery.Connection := dmConexao.FDConnection;
+end;
+
+destructor TBombaDAO.Destroy;
+begin
+  FreeAndNil(FQuery);
+
+  inherited;
+end;
+
+procedure TBombaDAO.Inserir(const ABomba: TBomba);
+begin
+
+end;
+
+end.

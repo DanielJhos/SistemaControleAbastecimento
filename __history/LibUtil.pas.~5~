@@ -1,0 +1,36 @@
+unit LibUtil;
+
+interface
+
+uses
+  System.SysUtils,
+  Vcl.Controls;
+
+type
+  TCaptionHelper = record Helper for TCaption
+  public
+    function ToString: String;
+    function ToIntDef(const AValue: Integer = 0): Integer;
+    function ToFloatDef(const AValue: Double = 0): Double;
+  end;
+
+implementation
+
+{ TCaptionHelper }
+
+function TCaptionHelper.ToString: String;
+begin
+  Result := String(Self);
+end;
+
+function TCaptionHelper.ToIntDef(const AValue: Integer): Integer;
+begin
+  Result := StrToIntDef(Self.ToString, AValue);
+end;
+
+function TCaptionHelper.ToFloatDef(const AValue: Double): Double;
+begin
+  Result := StrToFloatDef(Self.ToString, AValue);
+end;
+
+end.

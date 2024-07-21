@@ -1,0 +1,47 @@
+unit uFrmPrincipal;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, FireDAC.Stan.ExprFuncs,
+  FireDAC.Phys.SQLiteWrapper.Stat, FireDAC.Phys.SQLiteDef, FireDAC.Stan.Intf,
+  FireDAC.Phys, FireDAC.Phys.SQLite, FireDAC.Stan.Option, FireDAC.Stan.Error,
+  FireDAC.UI.Intf, FireDAC.Phys.Intf, FireDAC.Stan.Def, FireDAC.Stan.Pool,
+  FireDAC.Stan.Async, FireDAC.VCLUI.Wait, Data.DB, FireDAC.Comp.Client,
+  Vcl.Menus;
+
+type
+  TFrmSistemaAbastecimento = class(TForm)
+    FDPhysSQLiteDriverLink1: TFDPhysSQLiteDriverLink;
+    FDConnection1: TFDConnection;
+    mmSistemaAbastecimento: TMainMenu;
+    mmCadastros: TMenuItem;
+    mmBomba: TMenuItem;
+    mmTanque: TMenuItem;
+    mmMovimento: TMenuItem;
+    mmAbastecimento: TMenuItem;
+    procedure mmAbastecimentoClick(Sender: TObject);
+  end;
+
+var
+  FrmSistemaAbastecimento: TFrmSistemaAbastecimento;
+
+implementation
+
+uses
+  uFrmCadastroAbastecimento;
+
+{$R *.dfm}
+
+procedure TFrmSistemaAbastecimento.mmAbastecimentoClick(Sender: TObject);
+begin
+  const lFrmCadastroAbastecimento = TFrmCadastroAbastecimento.Create(nil);
+  try
+    lFrmCadastroAbastecimento.Show;
+  finally
+    FreeAndNil(lFrmCadastroAbastecimento)
+  end;
+end;
+
+end.

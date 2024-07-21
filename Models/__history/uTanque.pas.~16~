@@ -1,0 +1,39 @@
+unit uTanque;
+
+interface
+
+type
+  TTipoCombustivel = (tcGasolina, tcOleoDiesel);
+  TTanque = class
+  private
+    FID: Integer;
+    FDescricao: String;
+    FTipoCombustivel: TTipoCombustivel;
+  public
+    property ID: Integer read FID write FID;
+    property Descricao: String read FDescricao write FDescricao;
+    property TipoCombustivel: TTipoCombustivel read FTipoCombustivel write FTipoCombustivel;
+
+    constructor Create; overload;
+    constructor Append(const ADescricao: String; const ATipoCombustivel: TTipoCombustivel);
+  end;
+
+implementation
+
+{ TTanque }
+
+{ TTanque }
+
+constructor TTanque.Append(const ADescricao: String;
+  const ATipoCombustivel: TTipoCombustivel);
+begin
+  FDescricao := ADescricao;
+  FTipoCombustivel := ATipoCombustivel;
+end;
+
+constructor TTanque.Create;
+begin
+
+end;
+
+end.

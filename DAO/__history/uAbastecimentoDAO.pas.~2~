@@ -1,0 +1,27 @@
+unit uAbastecimentoDAO;
+
+interface
+
+uses
+  uAbastecimento,
+  FireDAC.Comp.Client;
+
+type
+  TAbastecimentoDAO = class
+  private
+    FQuery: TFDQuery;
+  public
+    procedure Inserir(const AAbastecimetno: TAbastecimento);
+    procedure Deletar(const AID: Integer);
+    procedure UltimoRegistro(const AAbastecimetno: TAbastecimento);
+
+    function ProximoSequencial: String;
+    function ConsultarDescricaoTanque(const AID: Integer): String;
+
+    constructor Create;
+    destructor Destroy; override;
+  end;
+
+implementation
+
+end.

@@ -1,0 +1,22 @@
+CREATE TABLE Tanque (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  descricao VARCHAR(255),
+  tipo_combustivel TEXT NOT NULL
+);
+
+CREATE TABLE Bomba (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  descricao VARCHAR(255),
+  id_tanque INTEGER,
+  FOREIGN KEY (id_tanque) REFERENCES Tanque(id)
+);
+
+CREATE TABLE Abastecimento (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  id_bomba INTEGER,
+  data DATE NOT NULL,
+  quantidade_litros REAL,
+  valor_abastecido REAL,
+  imposto REAL,
+  FOREIGN KEY (id_bomba) REFERENCES Bomba(id)
+);

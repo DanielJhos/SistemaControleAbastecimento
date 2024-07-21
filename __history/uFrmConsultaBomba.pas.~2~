@@ -1,0 +1,31 @@
+unit uFrmConsultaBomba;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Data.DB, Vcl.StdCtrls, Vcl.Grids,
+  Vcl.DBGrids, Vcl.ExtCtrls;
+
+type
+  TFrmConsultaBomba = class(TForm)
+    pnConsulta: TPanel;
+    lbPesquisar: TLabel;
+    edDescricaoTanque: TEdit;
+    dgConsultaTanque: TDBGrid;
+    btFiltrar: TButton;
+    dsConsultaBomba: TDataSource;
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  FrmConsultaBomba: TFrmConsultaBomba;
+
+implementation
+
+{$R *.dfm}
+
+end.

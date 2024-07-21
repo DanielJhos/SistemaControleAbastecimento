@@ -1,0 +1,66 @@
+unit uBombaDAO;
+
+interface
+
+uses
+  uBomba,
+  FireDAC.Comp.Client;
+
+type
+  TBombaDAO = class
+  private
+    FQuery: TFDQuery;
+  public
+    procedure Inserir(const ABomba: TBomba);
+    procedure Deletar(const AID: Integer);
+
+    constructor Create;
+    destructor Destroy; override;
+  end;
+
+implementation
+
+uses
+  System.SysUtils,
+  uDataModule,
+  LibUtil;
+
+{ TBombaDAO }
+
+constructor TBombaDAO.Create;
+begin
+  FQuery := TFDQuery.Create(nil);
+  FQuery.Connection := dmConexao.FDConnection;
+end;
+
+procedure TBombaDAO.Deletar(const AID: Integer);
+begin
+  FQuery.SQL.Clear;
+  FQuery.SQL.Add('DELETE FROM bomba');
+  FQuery.SQL.Add('WHERE id = :ID');
+  FQuery.ParamByName('ID').AsInteger := AID;
+  FQuery.ExecSQL;
+end;
+
+destructor TBombaDAO.Destroy;
+begin
+  FreeAndNil(FQuery);
+
+  inherited;
+end;
+
+procedure TBombaDAO.Inserir(const ABomba: TBomba);
+begin
+  FQuery.SQL.Clear;
+  FQuery.SQL.Add('INSERT INTO bomba (id, id_tanque, descricao)');
+  FQuery.SQL.Add('VALUES (:ID, :id_tanque, :DESCRICAO)');
+  FQuery.SQL.Add('ON CONFLICT (id)');
+  FQuery.SQL.Add('DO UPDATE');
+  FQuery.SQL.Add('  SET descricao = excluded.descricao');
+  FQuery.ParamByName('ID').AsInteger := ABomba.ID;
+  FQuery.ParamByName('ID_TANQUE').AsInteger := ABomba.IDTanque;
+  FQuery.ParamByName('DESCRICAO').AsString := ABomba.Descricao;
+  FQuery.ExecSQL;
+end;
+
+end.

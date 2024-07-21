@@ -1,0 +1,25 @@
+unit uAbastecimento;
+
+interface
+
+type
+  TAbastecimento = class
+  private
+    FID: Integer;
+    FIDBomba: Integer;
+    FData: TDateTime;
+    FQuantidadeLitros: Double;
+    FValorAbastecido: Double;
+    FImposto: Double;
+  public
+    property ID: Integer read FID write FID;
+    property IDBomba: Integer read FIDBomba write FIDBomba;
+    property Data: TDateTime read FData write FData;
+    property QuantidadeLitros: Double read FQuantidadeLitros write FQuantidadeLitros;
+    property ValorAbastecido: Double read FValorAbastecido write FValorAbastecido;
+    property Imposto: Double read FImposto write FImposto;
+  end;
+
+implementation
+
+end.
